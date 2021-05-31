@@ -2,23 +2,28 @@ import './App.css';
 import { useQuery, gql } from '@apollo/client';
 
 export const QUERY = gql`
-  query getTracks {
-    tracksForHome {
+  query Author {
+    author(id: "60b545477a42b709812036b5") {
       id
-      title
-      thumbnail
-      length
-      modulesCount
-      author {
-        name
-        photo
+      name
+      scavengerHunts {
+        title
+        instructions
+        urls {
+          url
+          points
+        }
+        __typename
+        id
       }
+      __typename
     }
   }
 `;
 
 function App() {
   const { loading, error, data } = useQuery(QUERY);
+  console.log(loading, error, data);
   return (
     <div className="App">
       <header className="App-header">
@@ -34,11 +39,9 @@ function App() {
         >
           Learn React
         </a>
-        <QueryResult error={error} loading={loading} data={data}>
-        {data?.tracksForHome?.map((track, index) => (
-          <TrackCard key={track.id} track={track} />
-        ))}
-      </QueryResult>
+        <div error={error} loading={loading.toString()} data={data}>
+          {/* Add stuff here */}
+      </div>
       </header>
     </div>
   );
