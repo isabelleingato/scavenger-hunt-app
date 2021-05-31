@@ -99,37 +99,56 @@ const resolvers = {
       },
     },
     Query: {
+      // todo: share author and player
       author: async (parent, args, { user, db }) => {
-        return [];
+        console.error(parent, args);
+        const res = await Identity.findById(args.id).exec();
+        return res;
+        /*return {
+          ...res,
+          id: res._id,
+        };*/
       },
       player: async (parent, args, { user, db }) => {
-        return [];
+        console.error(parent, args);
+        const res = await Identity.findById(args.id).exec();
+        return {
+          ...res,
+          id: res._id,
+        };
       },
     },
     Author: {
       scavengerHunts: async (parent, args, { user, db }) => {
-        return [];
+        console.error(parent, args);
+        return parent.huntsAuthored.map((huntId) => Hunt.findById(huntId).exec());
       },
     },
     Player: {
       scavengerHunts: async (parent, args, { user, db }) => {
-        return [];
+        console.error(parent, args);
+        return parent.huntsPlayed.map((huntId) => Hunt.findById(huntId).exec());
       },
       progress: async (parent, args, { user, db }) => {
-        return [];
+        console.error(parent, args);
+        return parent.huntsAuthored.map((huntId) => Hunt.findById(huntId).exec());
       },
     },
     ScavengerHunt: {
       author: async (parent, args, { user, db }) => {
+        console.error(parent, args);
         return null;
       },
       urls: async (parent, args, { user, db }) => {
-        return [];
+        console.error(parent, args);
+        return parent.urls.map((record) => ({ url: record.url, points: record.points }));
       },
       players: async (parent, args, { user, db }) => {
-        return [];
+        console.error(parent, args);
+        return parent;
       },
       finishers: async (parent, args, { user, db }) => {
+        console.error(parent, args);
         return null;
       }
     },
