@@ -1,6 +1,8 @@
 import './App.css';
+import Hunt from './Hunt';
 import { useQuery, gql } from '@apollo/client';
 
+// TODO: Replace with variable
 export const QUERY = gql`
   query Author {
     author(id: "60b545477a42b709812036b5") {
@@ -28,20 +30,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={process.env.PUBLIC_URL + '/logo192.png'} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <div error={error} loading={loading.toString()} data={data}>
-          {/* Add stuff here */}
-      </div>
+          {data?.author?.scavengerHunts?.map((hunt) => (
+            <Hunt key={hunt.id} hunt={hunt} />
+          ))}
+        </div>
       </header>
     </div>
   );
