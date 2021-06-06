@@ -1,4 +1,5 @@
 import './App.css';
+import Nav from './Nav';
 import Hunt from './Hunt';
 import { useQuery, gql } from '@apollo/client';
 
@@ -29,13 +30,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={process.env.PUBLIC_URL + '/logo192.png'} className="App-logo" alt="logo" />
+        <p></p>
+      </header>
+      <Nav></Nav>
+      <main>
         <div error={error} loading={loading.toString()} data={data}>
           {data?.author?.scavengerHunts?.map((hunt) => (
             <Hunt key={hunt.id} hunt={hunt} />
           ))}
         </div>
-      </header>
+      </main>
     </div>
   );
 }
