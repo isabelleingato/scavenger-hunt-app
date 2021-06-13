@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Topics</h1>
+    <button class="invisible delete">Clear All Data</button>
+    <p>Choose from the following developer topics to start keeping track:</p>
+    <ol>
+        <li><label><input type="checkbox" value="python" />Python</label></li>
+        <li><label><input type="checkbox" value="docker" />Docker</label></li>
+        <li><label><input type="checkbox" value="ruby" />Ruby</label></li>
+        <li><label><input type="checkbox" value="kubernetes" />Kubernetes</label></li>
+    </ul>
+  </body>
+  <script src="options.js"></script>
+</html>

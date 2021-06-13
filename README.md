@@ -10,6 +10,7 @@ Web-search based "scavenger hunt" game composed of a client and server applicati
 
 ## Built With
 * [Create React App](https://github.com/facebook/create-react-app)
+* [React Router](https://reactrouter.com/web/guides/quick-start)
 * [Storybook](https://storybook.js.org/)
 * [Mongoose](https://mongoosejs.com/)
 * [Passport](https://www.passportjs.org/)

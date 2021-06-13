@@ -1,0 +1,21 @@
+{
+    "name": "Scavenger Hunt App Plugin",
+    "version": "1.0",
+    "description": "While participating in an online scavenger hunt, sends your history to the scavenger hunt app.",
+    "permissions": ["activeTab", "tabs", "storage", "declarativeContent", "<all_urls>"],
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    },
+    "incognito": "not_allowed",
+    "options_page": "options.html",
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "images/icon.png",
+        "default_title": "ScavengerHunt"
+    },
+    "icons": {
+        "16": "images/icon.png"
+    },
+    "manifest_version": 2
+}
